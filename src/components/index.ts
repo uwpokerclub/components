@@ -1,4 +1,4 @@
-import ManualTimer from "./ManualTimer/ManualTimer";
-import DateTimer from "./DateTimer/DateTimer";
+import BlindTimer from "./BlindTimer/BlindTimer";
+import Icon from "./Icon/Icon";
 
-export { ManualTimer, DateTimer };
+export { BlindTimer, Icon };
