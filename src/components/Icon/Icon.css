@@ -1,0 +1,11 @@
+.i-circle-play {
+  content: url("../../assets/circle_play.svg");
+  width: 1rem;
+  height: 1rem;
+}
+
+.i-circle-pause {
+  content: url("../../assets/circle_pause.svg");
+  width: 1rem;
+  height: 1rem;
+}
