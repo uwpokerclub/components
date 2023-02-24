@@ -1,4 +1,5 @@
 import React, { ReactElement, useEffect, useState } from "react";
+import { playSound } from "../../utils/playSound";
 import Icon from "../Icon/Icon";
 
 type Props = {
@@ -56,14 +57,28 @@ function BlindTimer({ levels }: Props): ReactElement {
   // Update the minutes and seconds everytime the countdown timer
   // updates. If the timer has completed it will stop updating.
   useEffect(() => {
-    // If this timer has finished, advance to the next level
-    if (countdown <= 0) {
-      // Advance current level index
+    const minutesRemaining = Math.floor(
+      (countdown % (1000 * 60 * 60)) / (1000 * 60)
+    );
+    const secondsRemaining = Math.floor((countdown % (1000 * 60)) / 1000);
+
+    // Play sound if in the last 5 seconds
+    if (
+      minutesRemaining === 0 &&
+      secondsRemaining >= 1 &&
+      secondsRemaining <= 5
+    ) {
+      const audioContext = new AudioContext();
+      playSound(audioContext, 493.883, audioContext.currentTime, 0.15);
+    } else if (minutesRemaining === 0 && secondsRemaining === 0) {
+      // Advance current level index and play next level sound
       setCurrLevel((i) => i + 1);
-    } else {
-      setMinutes(Math.floor((countdown % (1000 * 60 * 60)) / (1000 * 60)));
-      setSeconds(Math.floor((countdown % (1000 * 60)) / 1000));
+      const audioContext = new AudioContext();
+      playSound(audioContext, 659.255, audioContext.currentTime + 0.15, 0.25);
     }
+
+    setMinutes(minutesRemaining);
+    setSeconds(secondsRemaining);
   }, [countdown]);
 
   // Updates the timer based on the current blind level. If there are no

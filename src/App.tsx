@@ -3,7 +3,7 @@ import { BlindTimer } from "./components";
 import "./App.css";
 
 function App() {
-  const levels = [2, 1];
+  const levels = [1, 1];
 
   return (
     <>
