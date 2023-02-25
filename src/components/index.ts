@@ -1,4 +1,4 @@
-import BlindTimer from "./BlindTimer/BlindTimer";
 import Icon from "./Icon/Icon";
+import TournamentClock from "./TournamentClock/TournamentClock";
 
-export { BlindTimer, Icon };
+export { Icon, TournamentClock };

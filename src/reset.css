@@ -50,3 +50,16 @@ p, h1, h2, h3, h4, h5, h6 {
 #root, #__next {
   isolation: isolate;
 }
+
+/*
+  10. Reset progress bar stying on all browsers
+*/
+progress[value] {
+  /* Reset the default appearance */
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  
+  /* Get rid of default border in Firefox. */
+  border: none;
+}

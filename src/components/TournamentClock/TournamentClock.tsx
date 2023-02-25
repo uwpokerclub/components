@@ -1,12 +1,21 @@
 import React, { ReactElement, useEffect, useState } from "react";
+
+import "./TournamentClock.css";
 import { playSound } from "../../utils/playSound";
 import Icon from "../Icon/Icon";
 
-type Props = {
-  levels: number[];
+type BlindLevel = {
+  small: number;
+  big: number;
+  ante: number;
+  time: number;
 };
 
-function BlindTimer({ levels }: Props): ReactElement {
+type Props = {
+  levels: BlindLevel[];
+};
+
+function TournamentClock({ levels }: Props): ReactElement {
   const [paused, setPaused] = useState(true);
   const [minutes, setMinutes] = useState(0);
   const [seconds, setSeconds] = useState(0);
@@ -17,7 +26,7 @@ function BlindTimer({ levels }: Props): ReactElement {
 
   let now = new Date();
   const [countdownDate, setCountdownDate] = useState(
-    new Date(now).setMinutes(now.getMinutes() + levels[0])
+    new Date(now).setMinutes(now.getMinutes() + levels[0].time)
   );
   const [countdown, setCountdown] = useState(
     countdownDate - new Date().getTime()
@@ -91,30 +100,81 @@ function BlindTimer({ levels }: Props): ReactElement {
       // Reset timer to new level time
       now = new Date();
       setCountdownDate(
-        new Date(now).setMinutes(now.getMinutes() + levels[currLevel])
+        new Date(now).setMinutes(now.getMinutes() + levels[currLevel].time)
       );
     }
   }, [currLevel, levels]);
-
   return (
-    <div>
-      <h1>
-        {timerOver
-          ? "Timer Finished!"
-          : `${minutes}:${seconds < 10 ? `0${seconds}` : seconds}`}
-      </h1>
+    <div className="grid">
+      <section className="timer">
+        <header className="timer__header">
+          <span>Level {currLevel + 1}</span>
+        </header>
 
-      <h3>Current Level: {currLevel + 1}</h3>
+        <div className="timer__display">
+          <span>
+            {minutes}:{seconds < 10 ? `0${seconds}` : seconds}
+          </span>
+        </div>
 
-      <div onClick={toggleTimer}>
-        {paused ? (
-          <Icon iconType="circle-play" scale={4} />
-        ) : (
-          <Icon iconType="circle-pause" scale={4} />
+        <div className="timer__buttons">
+          <div onClick={toggleTimer}>
+            {paused ? (
+              <Icon iconType="circle-play" scale={4} />
+            ) : (
+              <Icon iconType="circle-pause" scale={4} />
+            )}
+          </div>
+        </div>
+      </section>
+
+      <progress
+        className="progress"
+        max={1}
+        value={currLevel !== levels.length ? (countdown / (levels[currLevel].time * 60 * 1000)) : 1}
+      ></progress>
+
+      <section className="blinds">
+        <header className="blinds__header">Blinds</header>
+        <span className="blinds__amount">
+          {currLevel !== levels.length
+            ? `${levels[currLevel].small} / ${levels[currLevel].big}`
+            : `${levels[currLevel - 1].small} / ${levels[currLevel - 1].big}`}
+        </span>
+        {currLevel < levels.length && (
+          <div className="blinds__next">
+            <header className="blinds__next__header">Next Level</header>
+            <span className="blinds__next__amount">
+              {currLevel + 1 < levels.length
+                ? `${levels[currLevel + 1].small} / ${
+                    levels[currLevel + 1].big
+                  }`
+                : `${levels[currLevel].small} / ${levels[currLevel].big}`}
+            </span>
+          </div>
         )}
-      </div>
+      </section>
+
+      <section className="ante">
+        <header className="ante__header">Ante</header>
+        <span className="ante__amount">
+          {currLevel !== levels.length
+            ? `${levels[currLevel].ante}`
+            : `${levels[currLevel - 1].ante}`}
+        </span>
+        {currLevel < levels.length && (
+          <div className="ante__next">
+            <header className="ante__next__header">Next Level</header>
+            <span className="ante__next__amount">
+              {currLevel + 1 < levels.length
+                ? `${levels[currLevel + 1].ante}`
+                : `${levels[currLevel].ante}`}
+            </span>
+          </div>
+        )}
+      </section>
     </div>
   );
 }
 
-export default BlindTimer;
+export default TournamentClock;
