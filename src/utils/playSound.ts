@@ -9,7 +9,7 @@ export function playSound(
 
   // Set oscillator wave type
   osc1.type = "triangle";
-  volume.gain.value = 0.1;
+  volume.gain.value = 0.5;
   // Set up node routing
   osc1.connect(volume);
   volume.connect(audioContext.destination);
