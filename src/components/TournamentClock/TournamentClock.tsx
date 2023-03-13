@@ -15,13 +15,17 @@ type Props = {
   levels: BlindLevel[];
 };
 
+/* TODO: Features to Implement
+- +1 min, -1 min buttons
+- Next level, previous level buttons
+- Save/load current level to/from localStorage
+*/
 function TournamentClock({ levels }: Props): ReactElement {
   const [paused, setPaused] = useState(true);
   const [minutes, setMinutes] = useState(0);
   const [seconds, setSeconds] = useState(0);
   const [currLevel, setCurrLevel] = useState(0);
 
-  // Temporary state to test timer over functionality
   const [timerOver, setTimerOver] = useState(false);
 
   let now = new Date();
