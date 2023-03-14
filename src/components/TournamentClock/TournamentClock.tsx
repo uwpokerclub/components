@@ -16,8 +16,6 @@ type Props = {
 };
 
 /* TODO: Features to Implement
-- +1 min, -1 min buttons
-- Next level, previous level buttons
 - Save/load current level to/from localStorage
 */
 function TournamentClock({ levels }: Props): ReactElement {
@@ -53,6 +51,55 @@ function TournamentClock({ levels }: Props): ReactElement {
     }
 
     setPaused((p) => !p);
+  };
+
+  const addMinute = () => {
+    setCountdown((c) => c + 1000 * 60);
+    setCountdownDate((c) => c + 1000 * 60);
+  };
+
+  const subtractMinute = () => {
+    setCountdown((c) => c - 1000 * 60);
+    setCountdownDate((c) => c - 1000 * 60);
+  };
+
+  const nextLevel = () => {
+    if (currLevel >= levels.length - 1) {
+      return;
+    }
+
+    setCurrLevel((i) => {
+      const n = i + 1;
+      now = new Date();
+      setCountdownDate((d) => {
+        const newTime = new Date(now).setMinutes(
+          now.getMinutes() + levels[n].time
+        );
+        setCountdown(Math.ceil((newTime - new Date().getTime()) / 1000) * 1000);
+        return newTime;
+      });
+      return n;
+    });
+  };
+
+  const previousLevel = () => {
+    if (currLevel === 0) {
+      return;
+    }
+
+    setCurrLevel((i) => {
+      const n = i - 1;
+      now = new Date();
+      setCountdownDate((d) => {
+        const newTime = new Date(now).setMinutes(
+          now.getMinutes() + levels[n].time
+        );
+        setCountdown(Math.ceil((newTime - new Date().getTime()) / 1000) * 1000);
+        return newTime;
+      });
+
+      return n;
+    });
   };
 
   // Create an interval for every 1 second that will calculate the time
@@ -122,20 +169,36 @@ function TournamentClock({ levels }: Props): ReactElement {
         </div>
 
         <div className="timer__buttons">
-          <div onClick={toggleTimer}>
+          <span onClick={previousLevel}>
+            <Icon iconType="backward_step" scale={4} />
+          </span>
+          <span onClick={subtractMinute}>
+            <Icon iconType="minus" scale={4} />
+          </span>
+          <span onClick={toggleTimer}>
             {paused ? (
               <Icon iconType="circle-play" scale={4} />
             ) : (
               <Icon iconType="circle-pause" scale={4} />
             )}
-          </div>
+          </span>
+          <span onClick={addMinute}>
+            <Icon iconType="plus" scale={4} />
+          </span>
+          <span onClick={nextLevel}>
+            <Icon iconType="forward_step" scale={4} />
+          </span>
         </div>
       </section>
 
       <progress
         className="progress"
         max={1}
-        value={currLevel !== levels.length ? (countdown / (levels[currLevel].time * 60 * 1000)) : 1}
+        value={
+          currLevel !== levels.length
+            ? countdown / (levels[currLevel].time * 60 * 1000)
+            : 1
+        }
       ></progress>
 
       <section className="blinds">

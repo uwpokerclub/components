@@ -44,6 +44,16 @@
   font-size: 15rem;
 }
 
+.timer__buttons {
+  display: flex;
+  justify-content: center;
+  gap: 0 4rem;
+}
+
+.timer__buttons span {
+  cursor: pointer;
+}
+
 .blinds {
   grid-area: blinds;
 
