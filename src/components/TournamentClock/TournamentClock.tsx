@@ -1,8 +1,11 @@
 import React, { ReactElement, useEffect, useState } from "react";
 
-import "./TournamentClock.css";
+import { useLocalStorage } from "../../hooks";
 import { playSound } from "../../utils/playSound";
+
 import Icon from "../Icon/Icon";
+
+import "./TournamentClock.css";
 
 type BlindLevel = {
   small: number;
@@ -19,10 +22,12 @@ type Props = {
 - Save/load current level to/from localStorage
 */
 function TournamentClock({ levels }: Props): ReactElement {
+  const [levelIndex, setLevelIndex] = useLocalStorage("uwpsc-level-index", 0);
+
   const [paused, setPaused] = useState(true);
   const [minutes, setMinutes] = useState(0);
   const [seconds, setSeconds] = useState(0);
-  const [currLevel, setCurrLevel] = useState(0);
+  const [currLevel, setCurrLevel] = useState(levelIndex);
 
   const [timerOver, setTimerOver] = useState(false);
 
@@ -78,6 +83,8 @@ function TournamentClock({ levels }: Props): ReactElement {
         setCountdown(Math.ceil((newTime - new Date().getTime()) / 1000) * 1000);
         return newTime;
       });
+
+      setLevelIndex(n);
       return n;
     });
   };
@@ -98,6 +105,7 @@ function TournamentClock({ levels }: Props): ReactElement {
         return newTime;
       });
 
+      setLevelIndex(n);
       return n;
     });
   };
@@ -132,7 +140,11 @@ function TournamentClock({ levels }: Props): ReactElement {
       playSound(audioContext, 493.883, audioContext.currentTime, 0.15);
     } else if (minutesRemaining === 0 && secondsRemaining === 0) {
       // Advance current level index and play next level sound
-      setCurrLevel((i) => i + 1);
+      setCurrLevel((i) => {
+        const n = i + 1;
+        setLevelIndex(n);
+        return n;
+      });
       const audioContext = new AudioContext();
       playSound(audioContext, 659.255, audioContext.currentTime + 0.15, 0.25);
     }
