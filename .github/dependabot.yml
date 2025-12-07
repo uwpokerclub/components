@@ -1,0 +1,47 @@
+version: 2
+updates:
+  # GitHub Actions updates
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    open-pull-requests-limit: 5
+    labels:
+      - "dependencies"
+      - "github-actions"
+
+  # NPM dependencies
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    open-pull-requests-limit: 10
+    versioning-strategy: increase
+    labels:
+      - "dependencies"
+      - "npm"
+    groups:
+      storybook:
+        patterns:
+          - "@storybook/*"
+          - "storybook"
+      testing:
+        patterns:
+          - "@vitest/*"
+          - "vitest"
+          - "@testing-library/*"
+          - "playwright"
+      build-tools:
+        patterns:
+          - "vite"
+          - "@vitejs/*"
+          - "typescript"
+      linting:
+        patterns:
+          - "eslint"
+          - "eslint-*"
+          - "prettier"
+      semantic-release:
+        patterns:
+          - "semantic-release"
+          - "@semantic-release/*"
