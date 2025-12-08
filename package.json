@@ -13,6 +13,7 @@
       "import": "./dist/index.js",
       "require": "./dist/index.cjs"
     },
+    "./tokens.css": "./dist/styles/tokens.css",
     "./package.json": "./package.json"
   },
   "files": [

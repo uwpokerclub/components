@@ -29,6 +29,8 @@ pnpm add @uwpokerclub/components
 
 ## Usage
 
+### Importing Components
+
 ```tsx
 import { Button, Card } from '@uwpokerclub/components';
 
@@ -41,6 +43,40 @@ function App() {
     </Card>
   );
 }
+```
+
+### Using Design Tokens
+
+The library includes UWPSC brand design tokens (colors, typography, spacing, etc.) that can be imported into any project:
+
+```tsx
+// Import the tokens CSS file in your app entry point or layout
+import '@uwpokerclub/components/tokens.css';
+```
+
+This provides CSS variables for:
+
+- **Brand Colors**: Primary gold (`#f4b80f`) and secondary purple (`#4B2E83`)
+- **Typography**: Montserrat font family with fallbacks
+- **Spacing**: Consistent spacing scale
+- **Shadows, borders, and more**
+
+Example usage in your own components:
+
+```css
+.my-component {
+  color: var(--color-primary);
+  background: var(--color-secondary-light);
+  font-family: var(--font-family);
+  padding: var(--spacing-md);
+  border-radius: var(--border-radius-md);
+}
+```
+
+Dark theme support via `data-theme` attribute:
+
+```tsx
+<div data-theme="dark">{/* Your app content - automatically uses dark theme tokens */}</div>
 ```
 
 ## Documentation
