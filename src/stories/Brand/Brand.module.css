@@ -1,0 +1,202 @@
+.container {
+  font-family: var(--font-family);
+  padding: var(--spacing-2xl);
+  background: var(--color-background);
+  color: var(--color-text);
+}
+
+.section {
+  margin-bottom: var(--spacing-3xl);
+}
+
+.sectionTitle {
+  font-size: var(--font-size-3xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text);
+  margin-bottom: var(--spacing-lg);
+  border-bottom: 2px solid var(--color-border);
+  padding-bottom: var(--spacing-sm);
+}
+
+.subsection {
+  margin-bottom: var(--spacing-xl);
+}
+
+.subsectionTitle {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text);
+  margin-bottom: var(--spacing-md);
+}
+
+.colorGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: var(--spacing-md);
+  margin-bottom: var(--spacing-lg);
+}
+
+.colorCard {
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius-md);
+  overflow: hidden;
+  background: var(--color-background);
+}
+
+.colorSwatch {
+  width: 100%;
+  height: 100px;
+}
+
+.colorInfo {
+  padding: var(--spacing-md);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+}
+
+.colorName {
+  font-weight: var(--font-weight-semibold);
+  font-size: var(--font-size-sm);
+  color: var(--color-text);
+}
+
+.colorVariable {
+  font-family: var(--font-family-mono);
+  font-size: var(--font-size-xs);
+  color: var(--color-text-secondary);
+  background: var(--color-background-secondary);
+  padding: 2px 6px;
+  border-radius: var(--border-radius-sm);
+}
+
+.colorValue {
+  font-family: var(--font-family-mono);
+  font-size: var(--font-size-xs);
+  color: var(--color-text-secondary);
+}
+
+.typeGrid {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+}
+
+.typeExample {
+  font-family: var(--font-family);
+  color: var(--color-text);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+  padding: var(--spacing-md);
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius-md);
+  background: var(--color-background);
+}
+
+.typeLabel {
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-normal);
+  color: var(--color-text-secondary);
+  font-family: var(--font-family-mono);
+}
+
+.uiExamples {
+  display: flex;
+  gap: var(--spacing-md);
+  flex-wrap: wrap;
+  align-items: start;
+}
+
+.primaryButton {
+  background: var(--color-primary);
+  color: white;
+  border: none;
+  padding: var(--spacing-sm) var(--spacing-lg);
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-semibold);
+  font-family: var(--font-family);
+  border-radius: var(--border-radius-md);
+  cursor: pointer;
+  transition: background var(--transition-base);
+}
+
+.primaryButton:hover {
+  background: var(--color-primary-hover);
+}
+
+.primaryButton:active {
+  background: var(--color-primary-active);
+}
+
+.secondaryButton {
+  background: var(--color-secondary);
+  color: white;
+  border: none;
+  padding: var(--spacing-sm) var(--spacing-lg);
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-semibold);
+  font-family: var(--font-family);
+  border-radius: var(--border-radius-md);
+  cursor: pointer;
+  transition: background var(--transition-base);
+}
+
+.secondaryButton:hover {
+  background: var(--color-secondary-hover);
+}
+
+.card {
+  background: var(--color-background-secondary);
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius-md);
+  padding: var(--spacing-lg);
+  max-width: 300px;
+}
+
+.cardTitle {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-primary);
+  margin-bottom: var(--spacing-sm);
+}
+
+.cardText {
+  font-size: var(--font-size-md);
+  color: var(--color-text);
+  line-height: var(--line-height-normal);
+}
+
+.spacingGrid {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+.spacingExample {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  padding: var(--spacing-sm);
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius-sm);
+  background: var(--color-background);
+}
+
+.spacingBar {
+  height: 24px;
+  background: var(--color-primary);
+  border-radius: var(--border-radius-sm);
+}
+
+.spacingInfo {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+.spacingVariable {
+  font-family: var(--font-family-mono);
+  font-size: var(--font-size-sm);
+  color: var(--color-text);
+}
