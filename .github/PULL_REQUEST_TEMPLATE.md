@@ -39,7 +39,7 @@
 - [ ] Ran `npm run format` to format code
 - [ ] Ran `npm run build` successfully
 - [ ] All tests pass (`npm test`)
-- [ ] Test coverage meets the 80% threshold
+- [ ] Test coverage meets the 80% threshold (check with `npm run test:coverage`)
 
 ## Component Requirements (if applicable)
 
