@@ -1,3 +1,13 @@
+# [1.2.0](https://github.com/uwpokerclub/components/compare/v1.1.0...v1.2.0) (2025-12-09)
+
+### Bug Fixes
+
+- use rem units instead of px for button sizing ([ef3b434](https://github.com/uwpokerclub/components/commit/ef3b4344f5962983292a40a9e0b369041f5c9732))
+
+### Features
+
+- add Button atom component with comprehensive accessibility ([5437bc4](https://github.com/uwpokerclub/components/commit/5437bc45dcc7e0dbb60ecab41b543c92de18b83c)), closes [#17](https://github.com/uwpokerclub/components/issues/17)
+
 # [1.1.0](https://github.com/uwpokerclub/components/compare/v1.0.1...v1.1.0) (2025-12-09)
 
 ### Features
