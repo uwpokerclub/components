@@ -1,0 +1,53 @@
+@import '../../styles/tokens.css';
+
+/* Base Label */
+.label {
+  display: inline-block;
+  font-family: var(--font-family);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--line-height-normal);
+  color: var(--color-text);
+  cursor: pointer;
+  transition: color var(--transition-base);
+}
+
+/* Size Variants - Match Input component sizes */
+.small {
+  font-size: var(--font-size-sm);
+  margin-bottom: var(--spacing-xs);
+}
+
+.medium {
+  font-size: var(--font-size-md);
+  margin-bottom: var(--spacing-xs);
+}
+
+.large {
+  font-size: var(--font-size-lg);
+  margin-bottom: var(--spacing-sm);
+}
+
+/* Required Indicator */
+.required {
+  color: var(--color-danger);
+  margin-left: var(--spacing-xs);
+  font-weight: var(--font-weight-bold);
+}
+
+/* Disabled State */
+.disabled {
+  color: var(--color-text-disabled);
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.disabled .required {
+  color: var(--color-text-disabled);
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+  .label {
+    transition-duration: 0.01ms !important;
+  }
+}
