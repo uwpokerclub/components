@@ -1,3 +1,9 @@
+# [1.4.0](https://github.com/uwpokerclub/components/compare/v1.3.0...v1.4.0) (2025-12-09)
+
+### Features
+
+- add Label atom component with accessibility improvements ([c7c7694](https://github.com/uwpokerclub/components/commit/c7c76947db326a3b61cdc3f4840cd77574ee7df6)), closes [#19](https://github.com/uwpokerclub/components/issues/19)
+
 # [1.3.0](https://github.com/uwpokerclub/components/compare/v1.2.0...v1.3.0) (2025-12-09)
 
 ### Features
