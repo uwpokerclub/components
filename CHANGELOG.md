@@ -1,3 +1,9 @@
+# [1.3.0](https://github.com/uwpokerclub/components/compare/v1.2.0...v1.3.0) (2025-12-09)
+
+### Features
+
+- add Input atom component with comprehensive accessibility ([19c80d7](https://github.com/uwpokerclub/components/commit/19c80d7b1392c043433eb191a3b1e4a0a0c9da7f))
+
 # [1.2.0](https://github.com/uwpokerclub/components/compare/v1.1.0...v1.2.0) (2025-12-09)
 
 ### Bug Fixes
