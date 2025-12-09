@@ -12,6 +12,8 @@
 // Atoms - Basic building blocks
 export { Button } from './atoms/Button';
 export type { ButtonProps, ButtonVariant, ButtonSize } from './atoms/Button';
+export { Input } from './atoms/Input';
+export type { InputProps } from './atoms/Input';
 
 // Molecules - Simple combinations
 // export { Card } from './molecules/Card';
