@@ -10,8 +10,8 @@
  */
 
 // Atoms - Basic building blocks
-// export { Button } from './atoms/Button';
-// export type { ButtonProps } from './atoms/Button';
+export { Button } from './atoms/Button';
+export type { ButtonProps, ButtonVariant, ButtonSize } from './atoms/Button';
 
 // Molecules - Simple combinations
 // export { Card } from './molecules/Card';

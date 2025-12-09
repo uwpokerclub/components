@@ -14,6 +14,7 @@ export default defineConfig([
     '.storybook',
     'vite.config.lib.ts',
     'vitest.shims.d.ts',
+    'coverage',
   ]),
   {
     files: ['**/*.{ts,tsx}'],
