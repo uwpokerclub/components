@@ -18,5 +18,6 @@ export default {
         'revert',
       ],
     ],
+    'subject-case': [0], // Disable subject case enforcement to allow lowercase
   },
 };
