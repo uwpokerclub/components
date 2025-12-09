@@ -23,6 +23,7 @@ const copyCSSPlugin = () => ({
 export default defineConfig({
   plugins: [react(), copyCSSPlugin()],
   build: {
+    emptyOutDir: false, // Don't delete .d.ts files from build:types
     lib: {
       entry: path.resolve(dirname, 'src/index.ts'),
       name: 'UWPokerClubComponents',

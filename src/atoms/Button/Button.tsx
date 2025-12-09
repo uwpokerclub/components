@@ -1,5 +1,6 @@
 import { forwardRef, type ComponentPropsWithoutRef } from 'react';
 import styles from './Button.module.css';
+import { cn } from '../../utils/classNames';
 
 export type ButtonVariant = 'primary' | 'secondary' | 'tertiary' | 'destructive';
 export type ButtonSize = 'small' | 'medium' | 'large';
@@ -81,17 +82,15 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       console.warn('Button: Icon-only buttons should have an aria-label for accessibility');
     }
 
-    const buttonClasses = [
+    const buttonClasses = cn(
       styles.button,
       styles[variant],
       styles[size],
       fullWidth && styles.fullWidth,
       loading && styles.loading,
       isIconOnly && styles.iconOnly,
-      className,
-    ]
-      .filter(Boolean)
-      .join(' ');
+      className
+    );
 
     return (
       <button

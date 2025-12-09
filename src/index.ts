@@ -14,6 +14,8 @@ export { Button } from './atoms/Button';
 export type { ButtonProps, ButtonVariant, ButtonSize } from './atoms/Button';
 export { Input } from './atoms/Input';
 export type { InputProps } from './atoms/Input';
+export { Label } from './atoms/Label';
+export type { LabelProps, LabelSize } from './atoms/Label';
 
 // Molecules - Simple combinations
 // export { Card } from './molecules/Card';
