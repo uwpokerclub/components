@@ -112,7 +112,7 @@ export const Small: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Small size button (32px height).',
+        story: 'Small size button (2rem / 32px height).',
       },
     },
   },
@@ -126,7 +126,7 @@ export const Medium: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Medium size button (40px height). This is the default size.',
+        story: 'Medium size button (2.5rem / 40px height). This is the default size.',
       },
     },
   },
@@ -140,7 +140,7 @@ export const Large: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Large size button (48px height).',
+        story: 'Large size button (3rem / 48px height).',
       },
     },
   },
