@@ -16,14 +16,20 @@ export { Input } from './atoms/Input';
 export type { InputProps } from './atoms/Input';
 export { Label } from './atoms/Label';
 export type { LabelProps, LabelSize } from './atoms/Label';
+export { Checkbox } from './atoms/Checkbox';
+export type { CheckboxProps } from './atoms/Checkbox';
+export { Icon } from './atoms/Icon';
+export type { IconProps } from './atoms/Icon';
+export { Spinner } from './atoms/Spinner';
+export type { SpinnerProps } from './atoms/Spinner';
 
 // Molecules - Simple combinations
-// export { Card } from './molecules/Card';
-// export type { CardProps } from './molecules/Card';
+export { Pagination } from './molecules/Pagination';
+export type { PaginationProps } from './molecules/Pagination';
 
 // Organisms - Complex components
-// export { Header } from './organisms/Header';
-// export type { HeaderProps } from './organisms/Header';
+export { Table } from './organisms/Table';
+export type { TableProps, TableColumn } from './organisms/Table';
 
 // Templates - Page layouts
 // export { MainLayout } from './templates/MainLayout';

@@ -15,6 +15,7 @@ export default defineConfig([
     'vite.config.lib.ts',
     'vitest.shims.d.ts',
     'coverage',
+    '**/*.stories.tsx',
   ]),
   {
     files: ['**/*.{ts,tsx}'],
