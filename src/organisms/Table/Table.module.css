@@ -1,0 +1,224 @@
+.tableWrapper {
+  width: 100%;
+}
+
+.tableContainer {
+  width: 100%;
+  overflow-x: auto;
+  border-radius: var(--border-radius-md);
+  border: 1px solid var(--color-border);
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: var(--font-family);
+  font-size: var(--font-size-md);
+  color: var(--color-text);
+  background-color: var(--color-background);
+}
+
+.thead {
+  background-color: var(--color-background-secondary);
+}
+
+.thead-primary {
+  background-color: var(--color-primary);
+}
+
+.thead-primary .th,
+.thead-primary .checkboxCell {
+  color: var(--color-text-inverse);
+  border-bottom-color: rgba(255, 255, 255, 0.3);
+}
+
+.thead-primary .sortButton {
+  color: var(--color-text-inverse);
+}
+
+.thead-primary .sortButton:hover {
+  color: var(--color-text-inverse);
+  opacity: 0.9;
+}
+
+.thead-secondary {
+  background-color: var(--color-secondary);
+}
+
+.thead-secondary .th,
+.thead-secondary .checkboxCell {
+  color: var(--color-text-inverse);
+  border-bottom-color: rgba(255, 255, 255, 0.3);
+}
+
+.thead-secondary .sortButton {
+  color: var(--color-text-inverse);
+}
+
+.thead-secondary .sortButton:hover {
+  color: var(--color-text-inverse);
+  opacity: 0.9;
+}
+
+.th {
+  padding: var(--spacing-md) var(--spacing-sm);
+  text-align: left;
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text);
+  border-bottom: 2px solid var(--color-border);
+  white-space: nowrap;
+}
+
+.sortButton {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  border: none;
+  background: none;
+  color: inherit;
+  font: inherit;
+  font-weight: inherit;
+  cursor: pointer;
+  padding: 0;
+  transition: color var(--transition-base);
+  width: 100%;
+  justify-content: flex-start;
+}
+
+.sortButton:hover {
+  color: var(--color-primary);
+}
+
+.sortButton:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+  border-radius: var(--border-radius-sm);
+}
+
+.sortIcon {
+  display: inline-flex;
+  align-items: center;
+  opacity: 0.5;
+  transition: opacity var(--transition-base);
+}
+
+.sortButton:hover .sortIcon {
+  opacity: 1;
+}
+
+.sortButton[aria-sort='ascending'] .sortIcon,
+.sortButton[aria-sort='descending'] .sortIcon {
+  opacity: 1;
+  color: var(--color-primary);
+}
+
+.tbody {
+  background-color: var(--color-background);
+}
+
+.tbody tr {
+  border-bottom: 1px solid var(--color-border);
+  transition: background-color var(--transition-base);
+}
+
+.tbody tr:last-child {
+  border-bottom: none;
+}
+
+.tbody tr:hover {
+  background-color: var(--color-background-secondary);
+}
+
+.tbody tr.selected {
+  background-color: var(--color-background-secondary);
+}
+
+.td {
+  padding: var(--spacing-md) var(--spacing-sm);
+}
+
+.checkboxCell {
+  width: 3rem;
+  padding: var(--spacing-md) var(--spacing-sm);
+  text-align: center;
+}
+
+.thead .checkboxCell {
+  border-bottom: 2px solid var(--color-border);
+}
+
+.loadingCell,
+.emptyCell {
+  padding: var(--spacing-xl);
+  text-align: center;
+  border: none;
+}
+
+.loadingContent,
+.emptyContent {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 12rem;
+  color: var(--color-text-secondary);
+}
+
+.paginationWrapper {
+  display: flex;
+  justify-content: center;
+  padding: var(--spacing-md);
+  border-top: 1px solid var(--color-border);
+  background-color: var(--color-background);
+}
+
+/* Striped variant */
+.striped .tbody tr:nth-child(even) {
+  background-color: var(--color-background-secondary);
+}
+
+.striped .tbody tr:nth-child(even):hover {
+  background-color: var(--color-background-secondary);
+  filter: brightness(0.97);
+}
+
+[data-theme='dark'] .striped .tbody tr:nth-child(even):hover {
+  filter: brightness(1.1);
+}
+
+/* Bordered variant */
+.bordered .th,
+.bordered .td,
+.bordered .checkboxCell {
+  border-right: 1px solid var(--color-border);
+}
+
+.bordered .th:last-child,
+.bordered .td:last-child {
+  border-right: none;
+}
+
+/* Compact variant */
+.compact .th,
+.compact .td,
+.compact .checkboxCell {
+  padding: var(--spacing-sm) var(--spacing-xs);
+  font-size: var(--font-size-sm);
+}
+
+.compact .checkboxCell {
+  width: 2.5rem;
+}
+
+/* Responsive - using breakpoint values from tokens.css */
+@media (max-width: 768px) {
+  .tableContainer {
+    border-radius: var(--border-radius-sm);
+  }
+
+  .th,
+  .td,
+  .checkboxCell {
+    padding: var(--spacing-sm) var(--spacing-xs);
+    font-size: var(--font-size-sm);
+  }
+}
