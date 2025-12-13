@@ -1,9 +1,14 @@
-# [1.5.0](https://github.com/uwpokerclub/components/compare/v1.4.0...v1.5.0) (2025-12-12)
-
+# [1.6.0](https://github.com/uwpokerclub/components/compare/v1.5.0...v1.6.0) (2025-12-13)
 
 ### Features
 
-* add Table organism with supporting atoms and molecules ([c439db7](https://github.com/uwpokerclub/components/commit/c439db77cac5d4a1704771469ab748cdf9fb373c)), closes [#27](https://github.com/uwpokerclub/components/issues/27) [#15](https://github.com/uwpokerclub/components/issues/15) [#12](https://github.com/uwpokerclub/components/issues/12) [#7](https://github.com/uwpokerclub/components/issues/7)
+- Create MainLayout template component ([518fc83](https://github.com/uwpokerclub/components/commit/518fc83f831e81c2c67af89f01909cd5745b304a)), closes [#29](https://github.com/uwpokerclub/components/issues/29)
+
+# [1.5.0](https://github.com/uwpokerclub/components/compare/v1.4.0...v1.5.0) (2025-12-12)
+
+### Features
+
+- add Table organism with supporting atoms and molecules ([c439db7](https://github.com/uwpokerclub/components/commit/c439db77cac5d4a1704771469ab748cdf9fb373c)), closes [#27](https://github.com/uwpokerclub/components/issues/27) [#15](https://github.com/uwpokerclub/components/issues/15) [#12](https://github.com/uwpokerclub/components/issues/12) [#7](https://github.com/uwpokerclub/components/issues/7)
 
 # [1.4.0](https://github.com/uwpokerclub/components/compare/v1.3.0...v1.4.0) (2025-12-09)
 
