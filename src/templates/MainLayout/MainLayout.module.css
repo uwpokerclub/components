@@ -1,0 +1,29 @@
+/**
+ * MainLayout Styles
+ * Provides responsive horizontal spacing for page-level layout
+ */
+
+.mainLayout {
+  width: 100%;
+  min-height: 100vh;
+
+  /* Mobile: Full width, no horizontal padding */
+  padding-left: 0;
+  padding-right: 0;
+}
+
+/* Tablet and Desktop: Add horizontal padding */
+@media (min-width: 768px) {
+  .mainLayout {
+    padding-left: var(--spacing-lg);
+    padding-right: var(--spacing-lg);
+  }
+}
+
+/* Large screens: Increase padding for better content framing */
+@media (min-width: 1024px) {
+  .mainLayout {
+    padding-left: var(--spacing-xl);
+    padding-right: var(--spacing-xl);
+  }
+}
