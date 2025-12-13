@@ -1,3 +1,9 @@
+## [1.6.1](https://github.com/uwpokerclub/components/compare/v1.6.0...v1.6.1) (2025-12-13)
+
+### Bug Fixes
+
+- Export components.css in package.json ([59715e8](https://github.com/uwpokerclub/components/commit/59715e877c87033735885e2647f1ba2aa253f403)), closes [#31](https://github.com/uwpokerclub/components/issues/31)
+
 # [1.6.0](https://github.com/uwpokerclub/components/compare/v1.5.0...v1.6.0) (2025-12-13)
 
 ### Features
