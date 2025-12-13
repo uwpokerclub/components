@@ -172,8 +172,8 @@ export const ComparisonVariants: Story = {
           totalItems={100}
           pageSize={10}
           currentPage={5}
-          onPageChange={() => {
-            /* noop */
+          onPageChange={(page) => {
+            console.log('Page changed to:', page);
           }}
         />
       </div>
@@ -186,8 +186,8 @@ export const ComparisonVariants: Story = {
           pageSize={10}
           currentPage={5}
           variant="compact"
-          onPageChange={() => {
-            /* noop */
+          onPageChange={(page) => {
+            console.log('Page changed to:', page);
           }}
         />
       </div>

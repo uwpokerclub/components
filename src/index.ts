@@ -32,8 +32,8 @@ export { Table } from './organisms/Table';
 export type { TableProps, TableColumn } from './organisms/Table';
 
 // Templates - Page layouts
-// export { MainLayout } from './templates/MainLayout';
-// export type { MainLayoutProps } from './templates/MainLayout';
+export { MainLayout } from './templates/MainLayout';
+export type { MainLayoutProps } from './templates/MainLayout';
 
 // Hooks
 // export { useTheme } from './hooks/useTheme';
