@@ -29,6 +29,17 @@ pnpm add @uwpokerclub/components
 
 ## Usage
 
+### Importing Component Styles
+
+Import the component styles in your application's entry point (e.g., `main.tsx`, `_app.tsx`, or `layout.tsx`):
+
+```tsx
+// Import component styles
+import '@uwpokerclub/components/components.css';
+```
+
+This CSS file includes all the styles needed for the components to render correctly.
+
 ### Importing Components
 
 ```tsx
