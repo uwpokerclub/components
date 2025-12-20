@@ -3,7 +3,6 @@
 Official React component library for UW Poker Club applications.
 
 [![CI](https://github.com/uwpokerclub/components/workflows/CI/badge.svg)](https://github.com/uwpokerclub/components/actions)
-[![npm version](https://badge.fury.io/js/@uwpokerclub%2Fcomponents.svg)](https://www.npmjs.com/package/@uwpokerclub/components)
 [![Coverage](https://codecov.io/gh/uwpokerclub/components/branch/master/graph/badge.svg)](https://codecov.io/gh/uwpokerclub/components)
 
 ## Features
@@ -19,6 +18,27 @@ Official React component library for UW Poker Club applications.
 
 ## Installation
 
+This package is published to GitHub Packages and requires authentication to install.
+
+### 1. Create a Personal Access Token (Classic)
+
+1. Go to [GitHub Settings > Developer settings > Personal access tokens](https://github.com/settings/tokens)
+2. Generate a new token (classic) with the `read:packages` scope
+3. Copy the token
+
+### 2. Configure npm to use GitHub Packages
+
+Create or edit `~/.npmrc` in your home directory:
+
+```bash
+@uwpokerclub:registry=https://npm.pkg.github.com
+//npm.pkg.github.com/:_authToken=YOUR_GITHUB_TOKEN
+```
+
+Replace `YOUR_GITHUB_TOKEN` with your personal access token.
+
+### 3. Install the package
+
 ```bash
 npm install @uwpokerclub/components
 # or
@@ -26,6 +46,8 @@ yarn add @uwpokerclub/components
 # or
 pnpm add @uwpokerclub/components
 ```
+
+**Note**: The package is restricted to authorized users only. You must have access to the `uwpokerclub` GitHub organization to install this package.
 
 ## Usage
 
