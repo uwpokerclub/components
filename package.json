@@ -64,8 +64,8 @@
   "author": "UW Poker Club",
   "license": "MIT",
   "publishConfig": {
-    "access": "public",
-    "registry": "https://registry.npmjs.org/"
+    "access": "restricted",
+    "registry": "https://npm.pkg.github.com"
   },
   "devDependencies": {
     "@chromatic-com/storybook": "^4.1.3",

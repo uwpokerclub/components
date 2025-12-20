@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Repository Overview
 
-This is `@uwpokerclub/components` - a React component library built with TypeScript, following Atomic Design principles. The library is published to NPM and consumed by other UW Poker Club applications.
+This is `@uwpokerclub/components` - a React component library built with TypeScript, following Atomic Design principles. The library is published to GitHub Packages (restricted access) and consumed by other UW Poker Club applications.
 
 ## Architecture
 
@@ -129,7 +129,8 @@ Example: `feat: Add disabled state to Button component`
    - Runs on push/PR and weekly schedule
 
 3. **Release** (`.github/workflows/release.yml`)
-   - Automatic versioning and NPM publishing via semantic-release
+   - Automatic versioning and GitHub Packages publishing via semantic-release
+   - Uses GITHUB_TOKEN for authentication (no NPM_TOKEN needed)
    - Triggered on push to main/master
 
 4. **PR Checks** (`.github/workflows/pr-checks.yml`)
@@ -152,13 +153,35 @@ When creating a new component:
 
 ## Publishing
 
+This package is published to **GitHub Packages** (not npm) with restricted access to authorized users only.
+
+### Automated Publishing
+
 Publishing is fully automated via semantic-release on push to main/master. Version bumps are determined by commit message types:
 
 - `fix:` → patch version (0.1.0 → 0.1.1)
 - `feat:` → minor version (0.1.0 → 0.2.0)
 - `feat!:` or `BREAKING CHANGE:` → major version (0.1.0 → 1.0.0)
 
+The release workflow:
+
+1. Uses `GITHUB_TOKEN` for authentication (automatically provided by GitHub Actions)
+2. Sets `NODE_AUTH_TOKEN` environment variable for npm publish
+3. Publishes to `https://npm.pkg.github.com` registry
+4. Package access is restricted to uwpokerclub organization members
+
 Manual publishing is blocked by `prepublishOnly` script that runs lint, test, and build.
+
+### Installing the Package
+
+Users must configure GitHub Packages authentication in `~/.npmrc`:
+
+```bash
+@uwpokerclub:registry=https://npm.pkg.github.com
+//npm.pkg.github.com/:_authToken=YOUR_GITHUB_TOKEN
+```
+
+They need a GitHub Personal Access Token (classic) with `read:packages` scope.
 
 ## Key Configuration Files
 
@@ -167,6 +190,7 @@ Manual publishing is blocked by `prepublishOnly` script that runs lint, test, an
 - **`commitlint.config.js`** - Commit message validation rules
 - **`.lintstagedrc.json`** - Pre-commit hook configuration
 - **`.releaserc.json`** - Semantic-release configuration
+- **`.npmrc`** - GitHub Packages registry configuration for publishing
 
 ## Dependencies
 
