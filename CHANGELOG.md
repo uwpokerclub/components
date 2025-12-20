@@ -1,3 +1,10 @@
+# [1.7.0](https://github.com/uwpokerclub/components/compare/v1.6.1...v1.7.0) (2025-12-20)
+
+
+### Features
+
+* adding reuseable debounce hooks ([3d9527e](https://github.com/uwpokerclub/components/commit/3d9527e2a0dda3be1a72285b3405de43e1838300))
+
 ## [1.6.1](https://github.com/uwpokerclub/components/compare/v1.6.0...v1.6.1) (2025-12-13)
 
 ### Bug Fixes
