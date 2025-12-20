@@ -36,7 +36,8 @@ export { MainLayout } from './templates/MainLayout';
 export type { MainLayoutProps } from './templates/MainLayout';
 
 // Hooks
-// export { useTheme } from './hooks/useTheme';
+export { useDebounce } from './hooks/useDebounce';
+export { useDebouncedCallback } from './hooks/useDebouncedCallback';
 
 // Utilities
 // export { cn } from './utils/cn';
