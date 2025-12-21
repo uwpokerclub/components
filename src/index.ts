@@ -14,6 +14,8 @@ export { Button } from './atoms/Button';
 export type { ButtonProps, ButtonVariant, ButtonSize } from './atoms/Button';
 export { Input } from './atoms/Input';
 export type { InputProps } from './atoms/Input';
+export { Select } from './atoms/Select';
+export type { SelectProps, SelectOption } from './atoms/Select';
 export { Label } from './atoms/Label';
 export type { LabelProps, LabelSize } from './atoms/Label';
 export { Checkbox } from './atoms/Checkbox';
