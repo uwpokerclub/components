@@ -167,6 +167,22 @@
   --form-error-color: var(--color-danger);
   --form-hint-color: var(--color-text-secondary);
 
+  /* Modal */
+  --modal-bg: var(--color-background);
+  --modal-overlay-bg: var(--color-background-overlay);
+  --modal-border-radius: var(--border-radius-lg);
+  --modal-shadow: var(--shadow-xl);
+  --modal-padding: var(--spacing-xl);
+  --modal-header-padding: var(--spacing-xl);
+  --modal-body-padding: var(--spacing-xl);
+  --modal-footer-padding: var(--spacing-xl);
+  --modal-footer-gap: var(--spacing-md);
+  --modal-close-button-size: 2.5rem;
+  --modal-width-sm: 24rem;
+  --modal-width-md: 32rem;
+  --modal-width-lg: 48rem;
+  --modal-width-xl: 64rem;
+
   /* ========== Breakpoints (for reference in JS) ========== */
   --breakpoint-xs: 0px;
   --breakpoint-sm: 640px;
