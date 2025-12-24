@@ -1,3 +1,9 @@
+# [1.10.0](https://github.com/uwpokerclub/components/compare/v1.9.0...v1.10.0) (2025-12-24)
+
+### Features
+
+- Add FormField molecule component ([36c2254](https://github.com/uwpokerclub/components/commit/36c22546eeaf1b728587ef39111edc0014a65e8b)), closes [#52](https://github.com/uwpokerclub/components/issues/52)
+
 # [1.9.0](https://github.com/uwpokerclub/components/compare/v1.8.0...v1.9.0) (2025-12-24)
 
 ### Features
