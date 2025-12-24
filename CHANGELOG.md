@@ -1,3 +1,9 @@
+## [1.12.1](https://github.com/uwpokerclub/components/compare/v1.12.0...v1.12.1) (2025-12-24)
+
+### Bug Fixes
+
+- Apply fullWidth prop to Combobox container ([334d15d](https://github.com/uwpokerclub/components/commit/334d15dcd52a6967e0eb3d62249596f6cb166465)), closes [#62](https://github.com/uwpokerclub/components/issues/62)
+
 # [1.12.0](https://github.com/uwpokerclub/components/compare/v1.11.1...v1.12.0) (2025-12-24)
 
 ### Features
