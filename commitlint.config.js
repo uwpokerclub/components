@@ -19,5 +19,6 @@ export default {
       ],
     ],
     'subject-case': [0], // Disable subject case enforcement to allow lowercase
+    'body-max-line-length': [0], // Disable body line length limit
   },
 };

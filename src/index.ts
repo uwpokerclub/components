@@ -30,6 +30,8 @@ export { Pagination } from './molecules/Pagination';
 export type { PaginationProps } from './molecules/Pagination';
 export { Combobox } from './molecules/Combobox';
 export type { ComboboxProps, ComboboxOption } from './molecules/Combobox';
+export { FormField } from './molecules/FormField';
+export type { FormFieldProps, FormFieldChildProps } from './molecules/FormField';
 
 // Organisms - Complex components
 export { Table } from './organisms/Table';
