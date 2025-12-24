@@ -1,16 +1,20 @@
-# [1.8.0](https://github.com/uwpokerclub/components/compare/v1.7.0...v1.8.0) (2025-12-21)
-
+# [1.9.0](https://github.com/uwpokerclub/components/compare/v1.8.0...v1.9.0) (2025-12-24)
 
 ### Features
 
-* Add Select atom component ([d249b16](https://github.com/uwpokerclub/components/commit/d249b16018fad62a71d019357fe422616adba5dc)), closes [#49](https://github.com/uwpokerclub/components/issues/49)
+- Add Combobox molecule component ([0d89994](https://github.com/uwpokerclub/components/commit/0d89994cccc6652e014501535e77c0240ea494a2)), closes [#50](https://github.com/uwpokerclub/components/issues/50)
+
+# [1.8.0](https://github.com/uwpokerclub/components/compare/v1.7.0...v1.8.0) (2025-12-21)
+
+### Features
+
+- Add Select atom component ([d249b16](https://github.com/uwpokerclub/components/commit/d249b16018fad62a71d019357fe422616adba5dc)), closes [#49](https://github.com/uwpokerclub/components/issues/49)
 
 # [1.7.0](https://github.com/uwpokerclub/components/compare/v1.6.1...v1.7.0) (2025-12-20)
 
-
 ### Features
 
-* adding reuseable debounce hooks ([3d9527e](https://github.com/uwpokerclub/components/commit/3d9527e2a0dda3be1a72285b3405de43e1838300))
+- adding reuseable debounce hooks ([3d9527e](https://github.com/uwpokerclub/components/commit/3d9527e2a0dda3be1a72285b3405de43e1838300))
 
 ## [1.6.1](https://github.com/uwpokerclub/components/compare/v1.6.0...v1.6.1) (2025-12-13)
 
