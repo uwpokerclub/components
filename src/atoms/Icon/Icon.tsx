@@ -15,7 +15,11 @@ export interface IconProps extends ComponentPropsWithoutRef<'svg'> {
     | 'sort-asc'
     | 'sort-desc'
     | 'search'
-    | 'x';
+    | 'x'
+    | 'check-circle'
+    | 'x-circle'
+    | 'alert-triangle'
+    | 'alert-circle';
   /**
    * Size of the icon
    */
@@ -39,6 +43,25 @@ const iconPaths: Record<IconProps['name'], ReactNode> = {
   x: [
     <line key="1" x1="18" y1="6" x2="6" y2="18" />,
     <line key="2" x1="6" y1="6" x2="18" y2="18" />,
+  ],
+  'check-circle': [<circle key="1" cx="12" cy="12" r="10" />, <path key="2" d="m9 12 2 2 4-4" />],
+  'x-circle': [
+    <circle key="1" cx="12" cy="12" r="10" />,
+    <line key="2" x1="15" y1="9" x2="9" y2="15" />,
+    <line key="3" x1="9" y1="9" x2="15" y2="15" />,
+  ],
+  'alert-triangle': [
+    <path
+      key="1"
+      d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"
+    />,
+    <line key="2" x1="12" y1="9" x2="12" y2="13" />,
+    <line key="3" x1="12" y1="17" x2="12.01" y2="17" />,
+  ],
+  'alert-circle': [
+    <circle key="1" cx="12" cy="12" r="10" />,
+    <line key="2" x1="12" y1="8" x2="12" y2="12" />,
+    <line key="3" x1="12" y1="16" x2="12.01" y2="16" />,
   ],
 };
 
