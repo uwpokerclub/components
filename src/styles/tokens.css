@@ -153,6 +153,15 @@
   --transition-base: 200ms ease-in-out;
   --transition-slow: 300ms ease-in-out;
 
+  /* ========== Component-Specific Tokens ========== */
+
+  /* Combobox */
+  --combobox-dropdown-bg: var(--color-background);
+  --combobox-option-hover-bg: var(--color-background-secondary);
+  --combobox-option-selected-bg: var(--color-primary-light);
+  --combobox-dropdown-shadow: var(--shadow-lg);
+  --combobox-max-height: 16rem; /* 256px - ~8 items */
+
   /* ========== Breakpoints (for reference in JS) ========== */
   --breakpoint-xs: 0px;
   --breakpoint-sm: 640px;
@@ -203,4 +212,9 @@
   --color-border: #374151;
   --color-border-light: #4b5563;
   --color-border-dark: #1f2937;
+
+  /* Combobox */
+  --combobox-dropdown-bg: var(--color-background-secondary);
+  --combobox-option-hover-bg: var(--color-background-tertiary);
+  --combobox-option-selected-bg: var(--color-primary-light);
 }

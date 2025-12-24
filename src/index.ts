@@ -28,6 +28,8 @@ export type { SpinnerProps } from './atoms/Spinner';
 // Molecules - Simple combinations
 export { Pagination } from './molecules/Pagination';
 export type { PaginationProps } from './molecules/Pagination';
+export { Combobox } from './molecules/Combobox';
+export type { ComboboxProps, ComboboxOption } from './molecules/Combobox';
 
 // Organisms - Complex components
 export { Table } from './organisms/Table';
