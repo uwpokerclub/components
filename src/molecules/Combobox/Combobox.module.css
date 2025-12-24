@@ -3,6 +3,10 @@
   width: fit-content;
 }
 
+.fullWidth {
+  width: 100%;
+}
+
 .clearButton {
   all: unset;
   display: flex;

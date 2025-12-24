@@ -263,7 +263,10 @@ export const Combobox = forwardRef<HTMLInputElement, ComboboxProps>(
     const showDropdown = isOpen && !disabled;
 
     return (
-      <div ref={containerRef} className={cn(styles.container, className)}>
+      <div
+        ref={containerRef}
+        className={cn(styles.container, fullWidth && styles.fullWidth, className)}
+      >
         <Input
           ref={ref}
           id={comboboxId}
