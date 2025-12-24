@@ -1,3 +1,9 @@
+# [1.12.0](https://github.com/uwpokerclub/components/compare/v1.11.1...v1.12.0) (2025-12-24)
+
+### Features
+
+- Add Toast organism component ([4e4000d](https://github.com/uwpokerclub/components/commit/4e4000da361159f7ed5b19b7e1b581c2983fe6f1)), closes [#51](https://github.com/uwpokerclub/components/issues/51)
+
 ## [1.11.1](https://github.com/uwpokerclub/components/compare/v1.11.0...v1.11.1) (2025-12-24)
 
 ### Bug Fixes
