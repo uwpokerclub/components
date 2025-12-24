@@ -36,6 +36,8 @@ export type { FormFieldProps, FormFieldChildProps } from './molecules/FormField'
 // Organisms - Complex components
 export { Table } from './organisms/Table';
 export type { TableProps, TableColumn } from './organisms/Table';
+export { Modal } from './organisms/Modal';
+export type { ModalProps } from './organisms/Modal';
 
 // Templates - Page layouts
 export { MainLayout } from './templates/MainLayout';
