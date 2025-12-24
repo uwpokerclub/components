@@ -13,7 +13,9 @@ export interface IconProps extends ComponentPropsWithoutRef<'svg'> {
     | 'chevron-right'
     | 'sort'
     | 'sort-asc'
-    | 'sort-desc';
+    | 'sort-desc'
+    | 'search'
+    | 'x';
   /**
    * Size of the icon
    */
@@ -33,6 +35,11 @@ const iconPaths: Record<IconProps['name'], ReactNode> = {
   sort: [<path key="1" d="M7 10l5-5 5 5" />, <path key="2" d="M7 14l5 5 5-5" />],
   'sort-asc': <path d="M7 14l5-5 5 5" />,
   'sort-desc': <path d="M7 10l5 5 5-5" />,
+  search: [<circle key="1" cx="11" cy="11" r="8" />, <path key="2" d="m21 21-4.35-4.35" />],
+  x: [
+    <line key="1" x1="18" y1="6" x2="6" y2="18" />,
+    <line key="2" x1="6" y1="6" x2="18" y2="18" />,
+  ],
 };
 
 /**
