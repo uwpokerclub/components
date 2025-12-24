@@ -1,0 +1,41 @@
+@import '../../styles/tokens.css';
+
+/* Form Field Container */
+.formField {
+  display: flex;
+  flex-direction: column;
+  gap: var(--form-field-spacing);
+}
+
+/* Hint Text */
+.hint {
+  font-size: var(--font-size-sm);
+  color: var(--form-hint-color);
+  font-weight: var(--font-weight-normal);
+  line-height: var(--line-height-normal);
+  margin-top: calc(var(--spacing-xs) * -1);
+}
+
+/* Error Message */
+.errorMessage {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  font-size: var(--font-size-sm);
+  color: var(--form-error-color);
+  font-weight: var(--font-weight-normal);
+  line-height: var(--line-height-normal);
+}
+
+.errorMessage svg {
+  flex-shrink: 0;
+  width: 1rem;
+  height: 1rem;
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+  .formField {
+    transition-duration: 0.01ms !important;
+  }
+}
