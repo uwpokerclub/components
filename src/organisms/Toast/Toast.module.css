@@ -1,0 +1,255 @@
+@import '../../styles/tokens.css';
+
+/* ========== Toast Container (Position Groups) ========== */
+.toastContainer {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+  z-index: var(--z-index-toast);
+  pointer-events: none; /* Allow clicks through empty space */
+}
+
+.toastContainer > * {
+  pointer-events: auto; /* Enable clicks on toasts */
+}
+
+/* Position variants */
+.topLeft {
+  top: var(--spacing-md);
+  left: var(--spacing-md);
+}
+
+.topCenter {
+  top: var(--spacing-md);
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.topRight {
+  top: var(--spacing-md);
+  right: var(--spacing-md);
+}
+
+.bottomLeft {
+  bottom: var(--spacing-md);
+  left: var(--spacing-md);
+}
+
+.bottomCenter {
+  bottom: var(--spacing-md);
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.bottomRight {
+  bottom: var(--spacing-md);
+  right: var(--spacing-md);
+}
+
+/* ========== Base Toast ========== */
+.toast {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  gap: var(--toast-gap);
+  min-width: var(--toast-min-width);
+  max-width: var(--toast-max-width);
+  padding: var(--toast-padding);
+  background-color: var(--toast-bg);
+  border-left: var(--toast-border-width) solid;
+  border-radius: 0 var(--border-radius-sm) var(--border-radius-sm) 0;
+  box-shadow: var(--shadow-lg);
+  color: var(--color-text);
+  font-family: var(--font-family);
+  pointer-events: auto;
+
+  /* Initial state - hidden */
+  opacity: 0;
+  transform: translateY(calc(var(--toast-animation-distance) * -1));
+  transition:
+    opacity var(--transition-slow),
+    transform var(--transition-slow);
+}
+
+/* Visible state - slide in */
+.toast.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ========== Icon Container ========== */
+.iconContainer {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--toast-icon-size);
+  height: var(--toast-icon-size);
+  margin-top: 2px; /* Align with first line of text */
+}
+
+.icon {
+  width: 100%;
+  height: 100%;
+}
+
+/* ========== Content Area ========== */
+.content {
+  flex: 1;
+  min-width: 0; /* Allow text truncation */
+  padding-right: var(--spacing-xs);
+}
+
+.message {
+  margin: 0;
+  font-size: var(--font-size-sm);
+  line-height: var(--line-height-normal);
+  color: var(--color-text);
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+/* ========== Close Button ========== */
+.closeButton {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  padding: 0;
+  margin: 0;
+  border: none;
+  background: none;
+  color: var(--color-text-secondary);
+  cursor: pointer;
+  border-radius: var(--border-radius-sm);
+  transition:
+    background-color var(--transition-fast),
+    color var(--transition-fast);
+}
+
+.closeButton:hover {
+  background-color: var(--color-background-secondary);
+  color: var(--color-text);
+}
+
+.closeButton:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+.closeButton:active {
+  transform: scale(0.95);
+}
+
+/* ========== Variant Colors ========== */
+.success {
+  border-left-color: var(--color-success);
+}
+
+.success .iconContainer {
+  color: var(--color-success);
+}
+
+.warning {
+  border-left-color: var(--color-warning);
+}
+
+.warning .iconContainer {
+  color: var(--color-warning);
+}
+
+.error {
+  border-left-color: var(--color-danger);
+}
+
+.error .iconContainer {
+  color: var(--color-danger);
+}
+
+.info {
+  border-left-color: var(--color-info);
+}
+
+.info .iconContainer {
+  color: var(--color-info);
+}
+
+/* ========== Progress Bar ========== */
+.progressBar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: var(--toast-progress-height);
+  background-color: currentColor;
+  opacity: 0.3;
+  border-bottom-right-radius: var(--border-radius-sm);
+  transform-origin: left;
+  animation: shrinkProgress var(--toast-duration, 5000ms) linear forwards;
+}
+
+@keyframes shrinkProgress {
+  from {
+    transform: scaleX(1);
+  }
+  to {
+    transform: scaleX(0);
+  }
+}
+
+/* ========== Responsive Design ========== */
+@media (max-width: 640px) {
+  .toast {
+    min-width: auto;
+    max-width: calc(100vw - var(--spacing-lg) * 2);
+  }
+
+  /* Adjust container positions on mobile */
+  .topLeft,
+  .topRight {
+    left: var(--spacing-md);
+    right: var(--spacing-md);
+  }
+
+  .topCenter {
+    left: var(--spacing-md);
+    right: var(--spacing-md);
+    transform: none;
+  }
+
+  .bottomLeft,
+  .bottomRight {
+    left: var(--spacing-md);
+    right: var(--spacing-md);
+  }
+
+  .bottomCenter {
+    left: var(--spacing-md);
+    right: var(--spacing-md);
+    transform: none;
+  }
+}
+
+/* ========== Reduced Motion ========== */
+@media (prefers-reduced-motion: reduce) {
+  .toast,
+  .closeButton {
+    transition: none;
+  }
+
+  .toast {
+    transform: none !important;
+  }
+
+  .toast.visible {
+    opacity: 1;
+  }
+
+  .progressBar {
+    animation: none;
+    display: none; /* Hide progress bar for reduced motion */
+  }
+}

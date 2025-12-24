@@ -183,6 +183,18 @@
   --modal-width-lg: 48rem;
   --modal-width-xl: 64rem;
 
+  /* Toast */
+  --toast-bg: var(--color-background);
+  --toast-min-width: 20rem;
+  --toast-max-width: 28rem;
+  --toast-padding: var(--spacing-md);
+  --toast-gap: var(--spacing-sm);
+  --toast-border-width: 4px;
+  --toast-progress-height: 3px;
+  --toast-icon-size: 1.25rem;
+  --toast-animation-distance: 1rem;
+  --z-index-toast: 1080; /* Above tooltip */
+
   /* ========== Breakpoints (for reference in JS) ========== */
   --breakpoint-xs: 0px;
   --breakpoint-sm: 640px;
@@ -238,4 +250,7 @@
   --combobox-dropdown-bg: var(--color-background-secondary);
   --combobox-option-hover-bg: var(--color-background-tertiary);
   --combobox-option-selected-bg: var(--color-primary-light);
+
+  /* Toast */
+  --toast-bg: var(--color-background-secondary);
 }
