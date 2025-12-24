@@ -1,3 +1,9 @@
+# [1.11.0](https://github.com/uwpokerclub/components/compare/v1.10.0...v1.11.0) (2025-12-24)
+
+### Features
+
+- Add Modal organism component ([aeaf1ee](https://github.com/uwpokerclub/components/commit/aeaf1eecaff8fdb2336a2c35be6c76bffa1ad8b5)), closes [#48](https://github.com/uwpokerclub/components/issues/48)
+
 # [1.10.0](https://github.com/uwpokerclub/components/compare/v1.9.0...v1.10.0) (2025-12-24)
 
 ### Features
