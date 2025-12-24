@@ -1,3 +1,9 @@
+## [1.11.1](https://github.com/uwpokerclub/components/compare/v1.11.0...v1.11.1) (2025-12-24)
+
+### Bug Fixes
+
+- add auth token to read package ([7c6114e](https://github.com/uwpokerclub/components/commit/7c6114e7f22dd2be8a1bda05ab1c713324fdfa2b))
+
 # [1.11.0](https://github.com/uwpokerclub/components/compare/v1.10.0...v1.11.0) (2025-12-24)
 
 ### Features
