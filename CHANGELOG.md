@@ -1,3 +1,11 @@
+# [1.13.0](https://github.com/uwpokerclub/components/compare/v1.12.1...v1.13.0) (2025-12-25)
+
+### Features
+
+- Add Radio atom component ([bf1455c](https://github.com/uwpokerclub/components/commit/bf1455c4fcfca429ba488549c0a1e74ea8cda377)), closes [#13](https://github.com/uwpokerclub/components/issues/13)
+- Add Textarea atom component ([7bce14f](https://github.com/uwpokerclub/components/commit/7bce14ffcc6ad7044f108c77e18713f23ac788a4))
+- **UWPSC-66:** Add date, time, and datetime-local support to Input component ([a9e8835](https://github.com/uwpokerclub/components/commit/a9e883548e94a9ab2b6cc20897ec3b8f16986b65))
+
 ## [1.12.1](https://github.com/uwpokerclub/components/compare/v1.12.0...v1.12.1) (2025-12-24)
 
 ### Bug Fixes
