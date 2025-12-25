@@ -375,5 +375,64 @@ describe('Input', () => {
       expect(input).toHaveAttribute('type', 'password');
       expect(input).toHaveValue('secret');
     });
+
+    it('date input renders with correct type', () => {
+      const { container } = render(<Input type="date" />);
+      const input = container.querySelector('input[type="date"]');
+      expect(input).toBeInTheDocument();
+      expect(input).toHaveAttribute('type', 'date');
+    });
+
+    it('time input renders with correct type', () => {
+      const { container } = render(<Input type="time" />);
+      const input = container.querySelector('input[type="time"]');
+      expect(input).toBeInTheDocument();
+      expect(input).toHaveAttribute('type', 'time');
+    });
+
+    it('datetime-local input renders with correct type', () => {
+      const { container } = render(<Input type="datetime-local" />);
+      const input = container.querySelector('input[type="datetime-local"]');
+      expect(input).toBeInTheDocument();
+      expect(input).toHaveAttribute('type', 'datetime-local');
+    });
+
+    it('date input accepts date value', () => {
+      const { container } = render(<Input type="date" defaultValue="2024-03-15" />);
+      const input = container.querySelector('input[type="date"]');
+      expect(input).toHaveValue('2024-03-15');
+    });
+
+    it('time input accepts time value', () => {
+      const { container } = render(<Input type="time" defaultValue="14:30" />);
+      const input = container.querySelector('input[type="time"]');
+      expect(input).toHaveValue('14:30');
+    });
+
+    it('datetime-local input accepts datetime value', () => {
+      const { container } = render(<Input type="datetime-local" defaultValue="2024-03-15T14:30" />);
+      const input = container.querySelector('input[type="datetime-local"]');
+      expect(input).toHaveValue('2024-03-15T14:30');
+    });
+
+    it('date input works with error state', () => {
+      const { container } = render(<Input type="date" error errorMessage="Invalid date" />);
+      const input = container.querySelector('input[type="date"]');
+      expect(input).toHaveAttribute('aria-invalid', 'true');
+      expect(screen.getByRole('alert')).toHaveTextContent('Invalid date');
+    });
+
+    it('datetime-local input works with disabled state', () => {
+      const { container } = render(<Input type="datetime-local" disabled />);
+      const input = container.querySelector('input[type="datetime-local"]');
+      expect(input).toBeDisabled();
+    });
+
+    it('date input supports min and max attributes', () => {
+      const { container } = render(<Input type="date" min="2024-01-01" max="2024-12-31" />);
+      const input = container.querySelector('input[type="date"]');
+      expect(input).toHaveAttribute('min', '2024-01-01');
+      expect(input).toHaveAttribute('max', '2024-12-31');
+    });
   });
 });
