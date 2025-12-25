@@ -20,6 +20,8 @@ export { Label } from './atoms/Label';
 export type { LabelProps, LabelSize } from './atoms/Label';
 export { Checkbox } from './atoms/Checkbox';
 export type { CheckboxProps } from './atoms/Checkbox';
+export { Radio } from './atoms/Radio';
+export type { RadioProps } from './atoms/Radio';
 export { Icon } from './atoms/Icon';
 export type { IconProps } from './atoms/Icon';
 export { Spinner } from './atoms/Spinner';
