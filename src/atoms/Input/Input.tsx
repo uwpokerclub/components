@@ -6,7 +6,17 @@ export interface InputProps extends Omit<ComponentPropsWithoutRef<'input'>, 'pre
   /**
    * Type of input
    */
-  type?: 'text' | 'email' | 'password' | 'number' | 'search' | 'tel' | 'url';
+  type?:
+    | 'text'
+    | 'email'
+    | 'password'
+    | 'number'
+    | 'search'
+    | 'tel'
+    | 'url'
+    | 'date'
+    | 'time'
+    | 'datetime-local';
   /**
    * Error state - applies error styling
    */
@@ -36,7 +46,8 @@ export interface InputProps extends Omit<ComponentPropsWithoutRef<'input'>, 'pre
 /**
  * Input component - Text input field atom
  *
- * Supports text, email, password, number, and search input types.
+ * Supports text, email, password, number, search, tel, url, date, time,
+ * and datetime-local input types.
  * Provides error states, prefix/suffix slots, and full accessibility.
  * Extends native HTML input props for full control.
  */
