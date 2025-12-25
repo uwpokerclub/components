@@ -20,7 +20,7 @@
   border: var(--border-width-thin) solid var(--color-border);
   border-radius: var(--border-radius-md);
   padding: var(--spacing-xs) var(--spacing-sm);
-  min-height: var(--component-height-sm);
+  min-height: var(--component-height-md);
   transition:
     border-color var(--transition-base),
     background-color var(--transition-base),
@@ -68,6 +68,34 @@
 .input[type='search']::-webkit-search-results-button,
 .input[type='search']::-webkit-search-results-decoration {
   -webkit-appearance: none;
+}
+
+/* Date/Time input - calendar and clock icon styling */
+.input[type='date'],
+.input[type='time'],
+.input[type='datetime-local'] {
+  min-width: 0;
+}
+
+.input[type='date']::-webkit-calendar-picker-indicator,
+.input[type='time']::-webkit-calendar-picker-indicator,
+.input[type='datetime-local']::-webkit-calendar-picker-indicator {
+  cursor: pointer;
+  opacity: 0.6;
+  transition: opacity var(--transition-base);
+}
+
+.input[type='date']::-webkit-calendar-picker-indicator:hover,
+.input[type='time']::-webkit-calendar-picker-indicator:hover,
+.input[type='datetime-local']::-webkit-calendar-picker-indicator:hover {
+  opacity: 1;
+}
+
+.disabled .input[type='date']::-webkit-calendar-picker-indicator,
+.disabled .input[type='time']::-webkit-calendar-picker-indicator,
+.disabled .input[type='datetime-local']::-webkit-calendar-picker-indicator {
+  cursor: not-allowed;
+  opacity: 0.4;
 }
 
 /* Focus State */

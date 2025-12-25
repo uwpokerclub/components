@@ -11,14 +11,25 @@ const meta = {
     docs: {
       description: {
         component:
-          'Text input field atom. Supports text, email, password, number, and search input types. Provides error states, prefix/suffix slots, and full accessibility. Extends native HTML input props for full control.',
+          'Text input field atom. Supports text, email, password, number, search, tel, url, date, time, and datetime-local input types. Provides error states, prefix/suffix slots, and full accessibility. Extends native HTML input props for full control.',
       },
     },
   },
   argTypes: {
     type: {
       control: 'select',
-      options: ['text', 'email', 'password', 'number', 'search'],
+      options: [
+        'text',
+        'email',
+        'password',
+        'number',
+        'search',
+        'tel',
+        'url',
+        'date',
+        'time',
+        'datetime-local',
+      ],
       description: 'Type of input',
     },
     error: {
@@ -124,6 +135,62 @@ export const Search: Story = {
     docs: {
       description: {
         story: 'Search input type with appropriate semantic role.',
+      },
+    },
+  },
+};
+
+export const Date: Story = {
+  args: {
+    type: 'date',
+  },
+  parameters: {
+    docs: {
+      description: {
+        story: 'Date input type with native browser date picker.',
+      },
+    },
+  },
+};
+
+export const Time: Story = {
+  args: {
+    type: 'time',
+  },
+  parameters: {
+    docs: {
+      description: {
+        story: 'Time input type with native browser time picker.',
+      },
+    },
+  },
+};
+
+export const DateTimeLocal: Story = {
+  args: {
+    type: 'datetime-local',
+  },
+  parameters: {
+    docs: {
+      description: {
+        story: 'DateTime-local input type with native browser date and time picker.',
+      },
+    },
+  },
+};
+
+export const DateTimeStates: Story = {
+  render: () => (
+    <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', minWidth: '300px' }}>
+      <Input type="datetime-local" />
+      <Input type="datetime-local" error errorMessage="Please select a valid date and time" />
+      <Input type="datetime-local" disabled />
+    </div>
+  ),
+  parameters: {
+    docs: {
+      description: {
+        story: 'DateTime-local input in default, error, and disabled states.',
       },
     },
   },
@@ -335,6 +402,9 @@ export const AllInputTypes: Story = {
       <Input type="password" placeholder="Password" />
       <Input type="number" placeholder="Number" />
       <Input type="search" placeholder="Search..." />
+      <Input type="date" />
+      <Input type="time" />
+      <Input type="datetime-local" />
     </div>
   ),
   parameters: {

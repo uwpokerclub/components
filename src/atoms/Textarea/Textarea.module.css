@@ -1,0 +1,99 @@
+@import '../../styles/tokens.css';
+
+/* Container - wraps textarea and error message */
+.container {
+  display: inline-flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+}
+
+.fullWidth {
+  width: 100%;
+}
+
+/* Textarea Wrapper - contains the textarea element */
+.textareaWrapper {
+  display: inline-flex;
+  background-color: var(--color-background);
+  border: var(--border-width-thin) solid var(--color-border);
+  border-radius: var(--border-radius-md);
+  transition:
+    border-color var(--transition-base),
+    background-color var(--transition-base),
+    box-shadow var(--transition-base);
+}
+
+.fullWidth .textareaWrapper {
+  width: 100%;
+}
+
+/* Textarea Element */
+.textarea {
+  flex: 1;
+  font-family: var(--font-family);
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-normal);
+  line-height: var(--line-height-normal);
+  color: var(--color-text);
+  background: transparent;
+  border: none;
+  outline: none;
+  padding: var(--spacing-xs) var(--spacing-sm);
+  min-width: 0;
+  resize: vertical;
+}
+
+.textarea::placeholder {
+  color: var(--color-text-disabled);
+}
+
+/* Focus State */
+.textareaWrapper:focus-within {
+  border-color: var(--color-border-focus);
+  outline: var(--border-width-medium) solid var(--color-border-focus);
+  outline-offset: 0;
+}
+
+/* Hover State */
+.textareaWrapper:hover:not(.disabled):not(.error) {
+  border-color: var(--color-border-dark);
+}
+
+/* Error State */
+.error {
+  border-color: var(--color-danger);
+}
+
+.error:focus-within {
+  border-color: var(--color-danger);
+  outline-color: var(--color-danger);
+}
+
+/* Disabled State */
+.disabled {
+  background-color: var(--color-background-secondary);
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.disabled .textarea {
+  cursor: not-allowed;
+  color: var(--color-text-disabled);
+  resize: none;
+}
+
+/* Error Message */
+.errorMessage {
+  display: block;
+  font-size: var(--font-size-sm);
+  color: var(--color-danger);
+  font-weight: var(--font-weight-normal);
+  line-height: var(--line-height-normal);
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+  .textareaWrapper {
+    transition-duration: 0.01ms !important;
+  }
+}
