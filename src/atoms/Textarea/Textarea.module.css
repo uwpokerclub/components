@@ -1,6 +1,6 @@
 @import '../../styles/tokens.css';
 
-/* Container - wraps input and error message */
+/* Container - wraps textarea and error message */
 .container {
   display: inline-flex;
   flex-direction: column;
@@ -11,29 +11,24 @@
   width: 100%;
 }
 
-/* Input Wrapper - contains prefix, input, and suffix */
-.inputWrapper {
+/* Textarea Wrapper - contains the textarea element */
+.textareaWrapper {
   display: inline-flex;
-  align-items: center;
-  gap: var(--spacing-sm);
   background-color: var(--color-background);
   border: var(--border-width-thin) solid var(--color-border);
   border-radius: var(--border-radius-md);
-  padding: var(--spacing-xs) var(--spacing-sm);
-  min-height: var(--component-height-md);
   transition:
     border-color var(--transition-base),
     background-color var(--transition-base),
     box-shadow var(--transition-base);
-  position: relative;
 }
 
-.fullWidth .inputWrapper {
+.fullWidth .textareaWrapper {
   width: 100%;
 }
 
-/* Input Element */
-.input {
+/* Textarea Element */
+.textarea {
   flex: 1;
   font-family: var(--font-family);
   font-size: var(--font-size-md);
@@ -43,42 +38,24 @@
   background: transparent;
   border: none;
   outline: none;
-  padding: 0;
-  min-width: 0; /* Allow flex shrinking */
+  padding: var(--spacing-xs) var(--spacing-sm);
+  min-width: 0;
+  resize: vertical;
 }
 
-.input::placeholder {
+.textarea::placeholder {
   color: var(--color-text-disabled);
 }
 
-/* Number input - hide spinner buttons */
-.input[type='number'] {
-  -moz-appearance: textfield;
-}
-
-.input[type='number']::-webkit-outer-spin-button,
-.input[type='number']::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
-
-/* Search input - custom styling */
-.input[type='search']::-webkit-search-decoration,
-.input[type='search']::-webkit-search-cancel-button,
-.input[type='search']::-webkit-search-results-button,
-.input[type='search']::-webkit-search-results-decoration {
-  -webkit-appearance: none;
-}
-
 /* Focus State */
-.inputWrapper:focus-within {
+.textareaWrapper:focus-within {
   border-color: var(--color-border-focus);
   outline: var(--border-width-medium) solid var(--color-border-focus);
   outline-offset: 0;
 }
 
 /* Hover State */
-.inputWrapper:hover:not(.disabled):not(.error) {
+.textareaWrapper:hover:not(.disabled):not(.error) {
   border-color: var(--color-border-dark);
 }
 
@@ -99,30 +76,10 @@
   opacity: 0.6;
 }
 
-.disabled .input {
+.disabled .textarea {
   cursor: not-allowed;
   color: var(--color-text-disabled);
-}
-
-/* Prefix and Suffix */
-.prefix,
-.suffix {
-  display: inline-flex;
-  align-items: center;
-  flex-shrink: 0;
-  color: var(--color-text-secondary);
-}
-
-.prefix svg,
-.suffix svg {
-  width: 1rem;
-  height: 1rem;
-  display: block;
-}
-
-.disabled .prefix,
-.disabled .suffix {
-  color: var(--color-text-disabled);
+  resize: none;
 }
 
 /* Error Message */
@@ -136,7 +93,7 @@
 
 /* Reduced Motion Support */
 @media (prefers-reduced-motion: reduce) {
-  .inputWrapper {
+  .textareaWrapper {
     transition-duration: 0.01ms !important;
   }
 }
