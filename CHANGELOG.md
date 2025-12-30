@@ -1,3 +1,9 @@
+# [1.14.0](https://github.com/uwpokerclub/components/compare/v1.13.0...v1.14.0) (2025-12-30)
+
+### Features
+
+- **#73:** Add data-qa prop support to Table component ([522b7a2](https://github.com/uwpokerclub/components/commit/522b7a268f61e72ff8d2631bac2f57426d014bd1)), closes [#73](https://github.com/uwpokerclub/components/issues/73)
+
 # [1.13.0](https://github.com/uwpokerclub/components/compare/v1.12.1...v1.13.0) (2025-12-25)
 
 ### Features
