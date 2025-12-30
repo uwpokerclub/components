@@ -4,6 +4,7 @@ import { Checkbox } from '../../atoms/Checkbox';
 import { Icon } from '../../atoms/Icon';
 import { Spinner } from '../../atoms/Spinner';
 import { Pagination } from '../../molecules/Pagination';
+import { cn } from '../../utils/classNames';
 import styles from './Table.module.css';
 
 export interface TableColumn<T> {
@@ -27,6 +28,14 @@ export interface TableColumn<T> {
    * Custom render function for cell content
    */
   render?: (value: unknown, row: T) => React.ReactNode;
+  /**
+   * Props to pass to the header th element (e.g., data-qa attributes)
+   */
+  headerProps?: ComponentPropsWithoutRef<'th'>;
+  /**
+   * Function that receives the row and returns props for the td element (e.g., data-qa attributes)
+   */
+  cellProps?: (row: T) => ComponentPropsWithoutRef<'td'>;
 }
 
 export interface TableProps<T> extends ComponentPropsWithoutRef<'table'> {
@@ -90,6 +99,10 @@ export interface TableProps<T> extends ComponentPropsWithoutRef<'table'> {
    * Function to get unique key for each row
    */
   getRowKey?: (row: T, index: number) => string | number;
+  /**
+   * Function that receives the row and returns props for the tr element (e.g., data-qa attributes)
+   */
+  rowProps?: (row: T) => ComponentPropsWithoutRef<'tr'>;
 }
 
 /**
@@ -110,6 +123,7 @@ export const Table = <T,>({
   loading = false,
   emptyState,
   getRowKey = (_, index) => index,
+  rowProps,
   className,
   ...props
 }: TableProps<T>) => {
@@ -269,10 +283,11 @@ export const Table = <T,>({
               )}
               {columns.map((column) => {
                 const isSortable = sortable && column.sortable !== false;
+                const { className: headerClassName, ...restHeaderProps } = column.headerProps ?? {};
                 return (
                   <th
                     key={column.key}
-                    className={styles.th}
+                    className={cn(styles.th, headerClassName)}
                     aria-sort={
                       isSortable && sortKey === column.key
                         ? sortDirection === 'asc'
@@ -282,6 +297,7 @@ export const Table = <T,>({
                           ? 'none'
                           : undefined
                     }
+                    {...restHeaderProps}
                   >
                     {isSortable ? (
                       <button
@@ -336,9 +352,14 @@ export const Table = <T,>({
                 const dataIndex = data.findIndex((r) => r === row);
                 const rowKey = getRowKey(row, dataIndex);
                 const isSelected = selectedRows.has(rowKey);
+                const { className: rowClassName, ...restRowProps } = rowProps?.(row) ?? {};
 
                 return (
-                  <tr key={rowKey} className={isSelected ? styles.selected : undefined}>
+                  <tr
+                    key={rowKey}
+                    className={cn(isSelected && styles.selected, rowClassName) || undefined}
+                    {...restRowProps}
+                  >
                     {selectable && (
                       <td className={styles.checkboxCell}>
                         <Checkbox
@@ -355,9 +376,15 @@ export const Table = <T,>({
                         typeof column.accessor === 'function'
                           ? column.accessor(row)
                           : row[column.accessor];
+                      const { className: cellClassName, ...restCellProps } =
+                        column.cellProps?.(row) ?? {};
 
                       return (
-                        <td key={column.key} className={styles.td}>
+                        <td
+                          key={column.key}
+                          className={cn(styles.td, cellClassName)}
+                          {...restCellProps}
+                        >
                           {column.render
                             ? column.render(value, row)
                             : value != null && typeof value !== 'object'

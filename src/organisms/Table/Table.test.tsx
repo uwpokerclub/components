@@ -337,4 +337,116 @@ describe('Table', () => {
 
     expect(screen.getByTestId('my-table')).toBeInTheDocument();
   });
+
+  describe('Data-qa props', () => {
+    it('passes headerProps to th elements', () => {
+      const columns: TableColumn<TestData>[] = [
+        {
+          key: 'name',
+          header: 'Name',
+          accessor: 'name',
+          headerProps: { 'data-qa': 'name-header' },
+        },
+        {
+          key: 'age',
+          header: 'Age',
+          accessor: 'age',
+          headerProps: { 'data-qa': 'age-header', className: 'custom-header' },
+        },
+      ];
+
+      render(<Table columns={columns} data={mockData} />);
+
+      const nameHeader = screen.getByText('Name').closest('th');
+      const ageHeader = screen.getByText('Age').closest('th');
+
+      expect(nameHeader).toHaveAttribute('data-qa', 'name-header');
+      expect(ageHeader).toHaveAttribute('data-qa', 'age-header');
+      expect(ageHeader?.className).toContain('custom-header');
+    });
+
+    it('passes cellProps to td elements', () => {
+      const columns: TableColumn<TestData>[] = [
+        {
+          key: 'name',
+          header: 'Name',
+          accessor: 'name',
+          cellProps: (row) => ({ 'data-qa': `name-cell-${String(row.id)}` }),
+        },
+      ];
+
+      render(<Table columns={columns} data={mockData} />);
+
+      const johnCell = screen.getByText('John Doe').closest('td');
+      const janeCell = screen.getByText('Jane Smith').closest('td');
+
+      expect(johnCell).toHaveAttribute('data-qa', 'name-cell-1');
+      expect(janeCell).toHaveAttribute('data-qa', 'name-cell-2');
+    });
+
+    it('passes rowProps to tr elements', () => {
+      render(
+        <Table
+          columns={mockColumns}
+          data={mockData}
+          rowProps={(row) => ({ 'data-qa': `row-${String(row.id)}` })}
+        />
+      );
+
+      const rows = screen.getAllByRole('row');
+      // First row is header, data rows start at index 1
+      expect(rows[1]).toHaveAttribute('data-qa', 'row-1');
+      expect(rows[2]).toHaveAttribute('data-qa', 'row-2');
+      expect(rows[3]).toHaveAttribute('data-qa', 'row-3');
+    });
+
+    it('cellProps receives the correct row data', () => {
+      const cellPropsFn = vi.fn((row: TestData) => ({
+        'data-qa': `cell-${String(row.id)}`,
+      }));
+      const columns: TableColumn<TestData>[] = [
+        {
+          key: 'name',
+          header: 'Name',
+          accessor: 'name',
+          cellProps: cellPropsFn,
+        },
+      ];
+
+      render(<Table columns={columns} data={mockData} />);
+
+      expect(cellPropsFn).toHaveBeenCalledTimes(3);
+      expect(cellPropsFn).toHaveBeenCalledWith(mockData[0]);
+      expect(cellPropsFn).toHaveBeenCalledWith(mockData[1]);
+      expect(cellPropsFn).toHaveBeenCalledWith(mockData[2]);
+    });
+
+    it('rowProps receives the correct row data', () => {
+      const rowPropsFn = vi.fn((row: TestData) => ({
+        'data-qa': `row-${String(row.id)}`,
+      }));
+
+      render(<Table columns={mockColumns} data={mockData} rowProps={rowPropsFn} />);
+
+      expect(rowPropsFn).toHaveBeenCalledTimes(3);
+      expect(rowPropsFn).toHaveBeenCalledWith(mockData[0]);
+      expect(rowPropsFn).toHaveBeenCalledWith(mockData[1]);
+      expect(rowPropsFn).toHaveBeenCalledWith(mockData[2]);
+    });
+
+    it('preserves selected class when rowProps adds className', () => {
+      render(
+        <Table
+          columns={mockColumns}
+          data={mockData}
+          selectable
+          rowProps={() => ({ className: 'custom-row' })}
+        />
+      );
+
+      const rows = screen.getAllByRole('row');
+      // Data rows start at index 1, should have custom-row class
+      expect(rows[1].className).toContain('custom-row');
+    });
+  });
 });
