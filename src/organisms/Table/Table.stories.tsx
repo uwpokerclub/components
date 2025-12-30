@@ -399,3 +399,46 @@ export const CompactWithPagination: Story = {
     },
   },
 };
+
+/**
+ * Demonstrates the data-qa props feature for E2E testing.
+ * Use `headerProps`, `cellProps`, and `rowProps` to add data-qa attributes
+ * to table elements for reliable test selectors.
+ */
+export const WithDataQaAttributes: Story = {
+  args: {
+    columns: [
+      {
+        key: 'id',
+        header: 'ID',
+        accessor: 'id',
+        headerProps: { 'data-qa': 'id-header' },
+        cellProps: (row: User) => ({ 'data-qa': `user-id-${row.id}` }),
+      },
+      {
+        key: 'name',
+        header: 'Name',
+        accessor: 'name',
+        headerProps: { 'data-qa': 'name-header' },
+        cellProps: (row: User) => ({ 'data-qa': `user-name-${row.id}` }),
+      },
+      {
+        key: 'email',
+        header: 'Email',
+        accessor: 'email',
+        headerProps: { 'data-qa': 'email-header' },
+        cellProps: (row: User) => ({ 'data-qa': `user-email-${row.id}` }),
+      },
+      {
+        key: 'status',
+        header: 'Status',
+        accessor: 'status',
+        headerProps: { 'data-qa': 'status-header' },
+        cellProps: (row: User) => ({ 'data-qa': `user-status-${row.id}` }),
+      },
+    ],
+    data: sampleData,
+    sortable: true,
+    rowProps: (row: User) => ({ 'data-qa': `user-row-${row.id}` }),
+  },
+};
