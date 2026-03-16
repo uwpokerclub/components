@@ -326,6 +326,7 @@ export const Combobox = forwardRef<HTMLInputElement, ComboboxProps>(
                     id={`${comboboxId}-option-${String(index)}`}
                     role="option"
                     aria-selected={isSelected}
+                    data-qa={`combobox-option-${option.value}`}
                     className={cn(
                       styles.option,
                       isSelected && styles.selected,
