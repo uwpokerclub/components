@@ -1,3 +1,9 @@
+# [1.15.0](https://github.com/uwpokerclub/components/compare/v1.14.0...v1.15.0) (2026-03-16)
+
+### Features
+
+- **UWPSC-125:** Add data-qa attributes to Combobox option items ([7d16a21](https://github.com/uwpokerclub/components/commit/7d16a213e2ec7090dc36163c0866fa6284c90bdf))
+
 # [1.14.0](https://github.com/uwpokerclub/components/compare/v1.13.0...v1.14.0) (2025-12-30)
 
 ### Features
